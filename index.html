@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Design</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank">
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+    <slide class="logoslide nobackground">
+        <article class="flexbox vcenter">
+        	<span><img src="images/feecbr.png"></span>
+        </article>
+    </slide>
+
+    <slide class="title-slide segue nobackground">
+        <hgroup class="auto-fadein">
+            <h1 data-config-title><!-- populated from slide_config.json --></h1>
+            <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+            <p data-config-presenter><!-- populated from slide_config.json --></p>
+        </hgroup>
+    </slide>
+  
+    <slide>
+        <hgroup>
+        	<h2>A Web ontem, hoje. E amanhã?</h2>
+        </hgroup>
+        <article class="flexbox vcenter">
+        	<img src="images/old-new-web.jpg" alt="A Web antes e depois" title="A Web antes e depois">
+        </article>
+    </slide>
+    
+    <slide class="fill nobackground" style="background-image: url(images/windows95.jpg)"></slide>
+    
+    <slide class="segue dark quote nobackground">
+        <article class="flexbox vleft auto-fadein">
+        	<q>Visitas a sites através de Smartphones ou tablets em 2008 eram de 0,1%. Hoje aumentam cerca de 40% a 50% por ano.</q>
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>No Brasil temos 259 milhões de linhas de celular.</h2>
+            <h3>19 milhões já possuem smartphones.</h3>
+        </hgroup>
+        <article class="flexbox vcenter">
+        	<img src="images/homem-tecla-em-smartphone.jpg" alt="19 milhões de brasileiros já possuem smartphones" title="19 milhões de brasileiros já possuem smartphones">
+        </article>
+    </slide>
+    
+    <slide class="fill nobackground" style="background-image: url(images/responsive-design.jpg)"></slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Afinal, o que é Responsive Design?</h2>
+        </hgroup>
+        <article class="flexbox vcenter">
+        	<img src="images/responsive-design-is.jpg" alt="O que é Responsive Design" title="O que é Responsive Design">
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Por que Responsive?</h2>
+        </hgroup>
+        <article>
+            <ul class="build">
+                <li>Uma URL</li>
+                <li>Uma só marcação</li>
+                <li>Um só Deploy</li>
+            </ul>
+        </article>
+    </slide>
+    
+    <slide class="fill nobackground" style="background-image: url(images/microsoft.jpg)">
+    	<hgroup>
+        	<h2>A Web é uma só.</h2>
+        </hgroup>
+    </slide>
+    
+    <slide class="segue dark nobackground">
+        <hgroup class="auto-fadein">
+        	<h2>A Regra viewport</h2>
+        </hgroup>
+    </slide>
+    
+    <slide>
+        <hgroup>
+            <h2>Criada originalmente pela Apple para o Safari do iPhone</h2>
+            <h3>Adotada posteriormente por outros browsers</h3>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="html">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+            </pre>
+        </article>
+        <aside class="note">
+            <section>
+                <hgroup>
+                	<h2>Não desabilite o zoom</h2>
+            	</hgroup>
+                <pre class="prettyprint" data-lang="html">
+&lt;meta name="viewport" content="width=device-width, user-scalable=no"&gt;
+
+&lt;meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1"&gt;
+            	</pre>
+            </section>
+        </aside>
+    </slide>
+    
+    <slide class="segue dark nobackground">
+        <hgroup class="auto-fadein">
+        	<h2>O novo @viewport</h2>
+        </hgroup>
+    </slide>
+    
+    <slide>
+        <hgroup>
+            <h2>Regra <a href="http://dev.w3.org/csswg/css-device-adapt/">oficial</a> criada pelo W3C</h2>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="css">
+@viewport {
+	width: device-width;
+}
+
+/* Prefixos */
+@-ms-viewport { width: device-width; }
+@-o-viewport  { width: device-width; }
+            </pre>
+        </article>
+    </slide>
+    
+    <slide class="segue dark nobackground">
+        <hgroup class="auto-fadein">
+        	<h2>Flexibilidade com Media Queries</h2>
+        </hgroup>
+    </slide>
+    
+    <slide>
+        <hgroup>
+            <h2>As antigas Media Types</h2>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="html">
+&lt;link rel="stylesheet" href="styles.css" media="screen"&gt;
+&lt;link rel="stylesheet" href="mobile.css" media="handheld"&gt;
+            </pre>
+        </article>
+        <hgroup>
+            <h2>CSS3 media queries</h2>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="html">
+&lt;link rel="stylesheet" href="iphone.css" media="screen and (max-width: 320px)"&gt;
+            </pre>
+        </article>
+        <article>
+        	<p>Pdemos também utilizar <strong>min-width</strong>, <strong>width</strong> e <strong>device-width</strong> e as mesmas variações pra height.</p>
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Media queries com base na orientação do device</h2>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="html">
+//Quando o device estiver na vertical
+&lt;link rel="stylesheet" href="portrait.css" media="screen and (max-width: 320px) 
+		and (orientation: portrait)"&gt;
+        
+//Quando o device estiver na horizontal
+&lt;link rel="stylesheet" href="landscape.css" media="screen and (max-width: 480px) 
+		and (orientation: landscape)"&gt;
+            </pre>
+        </article>
+    </slide>
+    
+    <slide class="fill nobackground" style="background-image: url(images/portrait-landscape.jpg)"></slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Media queries dentro de arquivos CSS</h2>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="css">
+body { background: white; }
+ 
+/* Aplicada quando a largura mínima for 320px */
+@media screen and (min-width: 320px) {
+   body { background: red; }
+}
+ 
+/* Aplicada quando a largura mínima for 480px */
+@media screen and (min-width: 480px) {
+   body { background: green; }
+}
+            </pre>
+        </article>
+    </slide>
+    
+    <slide class="segue dark nobackground">
+        <hgroup class="auto-fadein">
+        	<h2>Responsive Images</h2>
+        </hgroup>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Imagens que se adaptam automaticamente ao dispositivo</h2>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="css">
+img {
+     max-width: 100%;
+     height: auto;
+}
+            </pre>
+            <p>No Internet Explorer</p>
+            <pre class="prettyprint" data-lang="css">
+img {
+     width: 100%;
+}
+            </pre>       
+        </article>
+    </slide>
+    
+    <slide class="segue dark nobackground">
+        <hgroup class="auto-fadein">
+        	<h2>Acessibilidade e Usabilidade</h2>
+        </hgroup>
+    </slide>
+    
+    <slide class="fill nobackground" style="background-image: url(images/touchgestures.jpg)"></slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Touchscreen Target Sizes</h2>
+            <h3>Dedo != Mouse</h3>
+        </hgroup>
+        <article>
+        	<ul>
+            	<li><a href="http://developer.apple.com/iphone/library/documentation/UserExperience/Conceptual/MobileHIG/DesigningNativeApp/DesigningNativeApp.html#//apple_ref/doc/uid/TP40006556-CH4-SW1">Apple</a> recomenda que a área mínima de click seja 44px x 44px.</li>
+                <li><a href="http://go.microsoft.com/?linkid=9713252">Microsoft</a> recomenda que a área mínima de click seja 34px.</li>
+                <li><a href="http://library.developer.nokia.com/index.jsp?topic=/S60_5th_Edition_Cpp_Developers_Library/GUID-5486EFD3-4660-4C19-A007-286DE48F6EEF.html">Nokia</a> recomenda que a área mínima de click seja 28px x 28px.</li>
+            </ul>
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Aumente a <a href="http://joshnh.com/2012/09/06/increasing-the-clickable-area-of-inline-links/">área de click</a> em links inline</h2>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="css">
+p a {
+    margin: -.5em;
+    padding: .5em;
+    position: relative;
+}
+            </pre>
+        </article>
+        <article class="flexbox">
+        	<img src="images/inline-links.png" alt="Aumente a área de click em links inline" title="Aumente a área de click em links inline">
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>URL's que facilitam a vida do usuário</h2>
+        </hgroup>
+        <article>
+<pre class="prettyprint" data-lang="html">
+&lt;!-- Ao clicar abre o programa de envio de e-mails -->
+&lt;a href="mailto:seu@email.com.br">Entre em contato por email&lt;/a&gt;
+ 
+&lt;!-- Ao clicar liga para o número em questão -->
+&lt;a href="tel:+4917640206387">Atendimento 24 Horas&lt;/a&gt;
+ 
+&lt;!-- Abre a APP Store -->
+&lt;a href="https://itunes.apple.com/app/ifound/id326839665?mt=8"&gt;Instalar APP&lt;/a&gt;
+</pre>        	
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Esqueça o :hover</h2>
+        </hgroup>
+        <article>
+        	<p>É comum no Desktop, mas não existe no mobile.</p>
+        </article>
+        <hgroup>
+        	<h2>display:none is evil</h2>
+        </hgroup>
+        <article>
+        	<p>Não esconda conteúdo do usuário, ele será carregado de qualquer forma.</p>
+        </article>
+        <hgroup>
+        	<h2>Esqueça Flash, Silverlight, Java... e jQuery</h2>
+        </hgroup>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Utilize Zepto.js e outros <a href="http://microjs.com/">micro-frameworks</a></h2>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="javascript">
+$('div').tap(function() {
+ 	// faz algo ao tocar 1x
+});
+
+$('div').swipeLeft(function() {
+ 	// faz algo ao deslizar para a esquerda
+});
+
+$('div').swipeRight(function() {
+ 	// faz algo ao deslizar para a direita
+});
+            </pre>
+        </article>
+    </slide>
+    
+    <slide class="segue dark nobackground">
+        <hgroup class="auto-fadein">
+        	<h2>Usabilidade em formulários</h2>
+        </hgroup>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Label dentro dos inputs</h2>
+        </hgroup>
+        <article class="flexbox vcenter">
+        	<img src="images/forms.jpg" alt="Label dentro dos inputs" title="Label dentro dos inputs">
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>HTML5 input types</h2>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="html">
+&lt;input type="email"&gt;
+            </pre>
+        </article>
+        <article class="vcenter">
+        	<img src="images/input-mail.jpg" alt="HTML5 input types" title="HTML5 input types">
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>HTML5 input types</h2>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="html">
+&lt;input type="url"&gt;
+            </pre>
+        </article>
+        <article class="vcenter">
+        	<img src="images/input-url.jpg" alt="HTML5 input types" title="HTML5 input types">
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>HTML5 input types</h2>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="html">
+&lt;input type="tel"&gt;
+            </pre>
+        </article>
+        <article class="vcenter">
+        	<img src="images/input-tel.jpg" alt="HTML5 input types" title="HTML5 input types">
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Auto grow em textareas</h2>
+        </hgroup>
+        <article>
+            <iframe data-src="examples/textareas/"></iframe>
+        </article>
+    </slide>
+    
+    <slide class="segue dark nobackground">
+        <hgroup class="auto-fadein">
+        	<h2>Facilite com APIs</h2>
+        </hgroup>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Geolocation</h2>
+        </hgroup>
+        <article class="flexbox vcenter">
+        	<img src="images/geolocation.png" alt="Descomplique com Geolocation" title="Descomplique com Geolocation">
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>localstorage</h2>
+        </hgroup>
+        <article>
+        	<pre class="prettyprint" data-lang="html">
+//Guarda alguma coisa no localstorage
+localStorage.setItem('chave', 'valor');
+
+//Recupero o item guardado
+var item = localStorage.getItem('chave');
+            </pre>
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Media Capture</h2>
+        </hgroup>
+        <article>
+        	<p>Novidade no iOS 6, existente desde o Android Browser 3.0</p>
+            <pre class="prettyprint" data-lang="html">
+//Capturar vídeo da câmera            
+&lt;input type="file" accept="video/*" capture="camcorder"&gt;
+
+//Capturar foto da câmera
+&lt;input type="file" accept="image/*" capture="camera"&gt;
+
+//Capturar áudio do microfone
+&lt;input type="file" accept="audio/*" capture="microphone"&gt;
+            </pre>
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>getUserMedia</h2>
+        </hgroup>
+        <article>
+        	<p><a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/" title="getUserMedia">API</a> completa para manipulação de vídeo/foto/som:</p>
+            <iframe data-src="examples/getusermedia/"></iframe>
+        </article>
+    </slide>
+    
+    <slide class="segue dark nobackground">
+        <hgroup class="auto-fadein">
+        	<h2>Semântica em Navegação</h2>
+        </hgroup>
+    </slide>
+    
+    <slide class="fill nobackground" style="background-image: url(images/select-navigation.png)"></slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>Três linhas horizontais</h2>
+            <h3>Um ícone vale mais que 1000 palavras</h3>
+        </hgroup>
+        <article class="flexbox vcenter">
+        	<img src="images/three-horizontal-lines.png" alt="Três linhas horizontais" title="Três linhas horizontais">
+        </article>
+    </slide>
+    
+    <slide class="fill nobackground" style="background-image: url(images/semantic-menu.png)"></slide>
+    
+    <slide>
+        <hgroup>
+        	<h2><a href="http://joshnh.com/2012/02/23/pure-css-icons/">Ícones</a> podem ser criados com CSS</h2>
+        </hgroup>
+        <article class="flexbox vcenter">
+        	<img src="images/css-icons.png" alt="Ícones com CSS" title="Ícones com CSS">
+        </article>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>E por que não animações também via CSS</h2>
+        </hgroup>
+        <article>
+        	<p>Fonte: <a href="http://cssdeck.com/labs/google-doodle-in-css-follow-up">CSSDeck</a></p>
+            <iframe data-src="examples/css-animations/"></iframe>
+        </article>
+    </slide>
+    
+    <slide class="segue dark nobackground">
+        <hgroup class="auto-fadein">
+        	<h2>Responsive Email Design</h2>
+        </hgroup>
+    </slide>
+    
+    <slide class="fill nobackground" style="background-image: url(images/charts-email.jpg)">
+    	<hgroup>
+        	<h2>20% dos e-mails são lidos no celular</h2>
+            <h3>Fonte: <a href="http://www.campaignmonitor.com/blog/post/3495/the-rise-of-mobile-email/">Campaign Monitor</a></h3>
+        </hgroup>
+    </slide>
+    
+    <slide>
+        <hgroup>
+        	<h2>E como anda o suporte a Media Queries?</h2>
+        </hgroup>
+        <article>
+            <table>
+                <tr>
+                    <th>Amazon Kindle Fire</th>
+                    <td><span class="true">Yes</span></td>
+                </tr>
+                <tr>
+                    <th>Android 2.2+</th>
+                    <td><span class="true">Yes</span></td>
+                </tr>
+                <tr>
+                    <th>iOS Devices</th>
+                    <td><span class="true">Yes</span></td>
+                </tr>
+                <tr>
+                    <th>BlackBerry OS 6+</th>
+                    <td><span class="true">Yes</span></td>
+                </tr>
+                <tr>
+                    <th>Microsoft Windows Phone 7.5+</th>
+                    <td><span class="true">Yes</span></td>
+                </tr>
+                <tr>
+                    <th>Palm Web OS 4.5</th>
+                    <td><span class="true">Yes</span></td>
+                </tr>
+                <tr>
+                    <th>Microsoft Outlook Exchange app (Android)</th>
+                    <td><span class="false">No</span></td>
+                </tr>
+                <tr>
+                    <th>Gmail mobile app (all platforms)</th>
+                    <td><span class="false">No</span></td>
+                </tr>
+                <tr>
+                    <th>Yahoo! Mail mobile app</th>
+                    <td><span class="false">No</span></td>
+                </tr>
+            </table>
+        </article>
+    </slide>
+
+    <slide class="thank-you-slide dark nobackground">
+        <article class="flexbox vleft">
+        	<h2>Obrigado</h2>
+        </article>
+        <p class="auto-fadein" data-config-contact><!-- populated from slide_config.json --></p>
+    </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-294778-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>

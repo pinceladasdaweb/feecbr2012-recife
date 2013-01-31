@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Auto Grow in Textareas</title>
+<style type="text/css">
+#box {background-color:#ccc; margin:120px auto 0; padding:20px; width:400px}
+textarea {border:1px solid #000; height:100px; width:400px}
+</style>
+<script type="text/javascript">
+function autogrow(textarea) {
+    // create fake div with same content
+    // (only works with box-sizing border-box)
+    var dv = document.createElement("div");
+    dv.className = 'fm-growable';
+    dv.style.visibility="hidden";
+    dv.style.position="absolute";
+    textarea.parentNode.appendChild(dv);
+
+    function resize() {
+        // copy current textarea content
+        dv.style.width = textarea.offsetWidth + 'px';
+        dv.innerHTML   = textarea.value.replace(/\r\n|\n/g, "<br>");
+        dv.innerHTML  += textarea.value[textarea.value.length-1] === '\n'? 'A' : ''; // trailing char if ends in \n
+		
+		
+		if(textarea.value.length == 0){
+			textarea.style.height = 80;
+		}else{
+			// set textarea size to be the same as the div
+			textarea.style.height = dv.offsetHeight + 80 + "px";
+		}
+    }
+
+    // resize right way if has some initial content
+    resize();
+
+    // resize onkeydown
+    textarea.addEventListener('keydown', resize, false);
+    textarea.addEventListener('input', resize, false);
+    textarea.addEventListener('propertychange', resize, false);
+}
+
+window.onload = function(){
+var el = document.getElementById('text');
+autogrow(el);	
+}
+</script>
+</head>
+<body>
+	<div id="box"><textarea id="text" cols="50" rows="10"></textarea></div>
+</body>
+</html>
